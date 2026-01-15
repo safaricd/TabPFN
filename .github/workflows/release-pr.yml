@@ -50,6 +50,7 @@ jobs:
       - name: Bump version in pyproject.toml
         run: |
           python - <<'PY'
+          import os
           import re
           from pathlib import Path
 
