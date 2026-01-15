@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.3.3] - 2026-01-15
+
+### Added
+
+- - Moved preprocessing-related code to dedicated modules inside `src/tabpfn/preprocessing/`
+  - Renamed public functions: 
+      - `validate_X_predict` → `ensure_compatible_predict_input_sklearn`
+      - `validate_Xy_fit` → `ensure_compatible_fit_inputs_sklearn`
+
+  ([#720](https://github.com/PriorLabs/TabPFN/pull/720))
+- - Add new features to finetuning (metric selection, time limit, passing validation data)
+    - Added `eval_metric` and `time_limit` parameters to `FinetunedTabPFNClassifier` and `FinetunedTabPFNRegressor` 
+    - Added `X_val`, `y_val` parameters to `.fit()` of `FinetunedTabPFNClassifier` and `FinetunedTabPFNRegressor` 
+  - Fix bug in finetuning for splitting very small datasets
+  - Ensure finetuning compares to the default checkpoint and does not accept worse models after finetuning
+
+  ([#730](https://github.com/PriorLabs/TabPFN/pull/730))
+- - Ensure `TabPFNValidationError` wraps both custom and sklearn's validate_data() errors ([#732](https://github.com/PriorLabs/TabPFN/pull/732))
+
+
 ## [6.3.1] - 2026-01-14
 
 ### Added
