@@ -53,7 +53,7 @@ jobs:
           import re
           from pathlib import Path
 
-          version = "${VERSION}"
+          version = os.environ["VERSION"]
           p = Path("pyproject.toml")
           s = p.read_text(encoding="utf-8")
 
@@ -95,4 +95,4 @@ jobs:
             --base "${BASE_BRANCH}" \
             --head "${RELEASE_BRANCH}" \
             --title "Release v${VERSION}" \
-            --body "Automated release PR for v${VERSION}.\n\n- Bump [project].version\n- Towncrier build (consumes fragments)"
+            --body "Automated release PR for v${VERSION}."
