@@ -50,14 +50,14 @@ jobs:
           version: "latest"
           enable-cache: true
 
-      - name: Install dependencies
-        run: uv pip install build --system
+      - name: Install build tool
+        run: uv tool install build
 
       - name: Clean previous builds
         run: git clean -xfd dist build *.egg-info || true
 
       - name: Build package
-        run: uv run python -m build
+        run: uv tool run --from build pyproject-build 
 
       - name: Extract release notes from CHANGELOG.md
         env:
