@@ -170,14 +170,14 @@ jobs:
           print-hash: true
           skip-existing: true
 
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Download release notes
         uses: actions/download-artifact@v4
         with:
           name: release_notes
           path: .
-      
-      - name: Checkout code
-        uses: actions/checkout@v4
 
       - name: Create GitHub Release
         env:
