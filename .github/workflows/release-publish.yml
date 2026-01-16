@@ -51,7 +51,7 @@ jobs:
           enable-cache: true
 
       - name: Install dependencies
-        run: uv pip install build
+        run: uv pip install build --system
 
       - name: Clean previous builds
         run: git clean -xfd dist build *.egg-info || true
@@ -135,7 +135,7 @@ jobs:
         env:
           VERSION: ${{ needs.build.outputs.version }}
         run: |
-          echo "🧪 Testing installation of tabpfn==${VERSION} from TestPyPI..."
+          echo "🧪 Testing installation of tabpfn-fork==${VERSION} from TestPyPI..."
 
           TEST_DIR=$(mktemp -d)
           cd "$TEST_DIR"
@@ -147,7 +147,7 @@ jobs:
             --index-url https://test.pypi.org/simple/ \
             --extra-index-url https://pypi.org/simple/ \
             --index-strategy unsafe-best-match \
-            tabpfn==${VERSION}
+            tabpfn-fork==${VERSION}
 
           echo "✅ Installation test completed."
 

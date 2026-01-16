@@ -3,7 +3,7 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "tabpfn"
+name = "tabpfn-fork"
 version = "6.3.2"
 dependencies = [
   "torch>=2.1,<3",
