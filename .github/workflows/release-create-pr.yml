@@ -17,6 +17,7 @@ permissions:
 jobs:
   release_pr:
     runs-on: ubuntu-latest
+    environment: release
     steps:
       - name: Guard base_ref, must be a full 40-char commit SHA
         run: |
