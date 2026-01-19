@@ -103,7 +103,8 @@ jobs:
       - name: Create Pull Request
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr create \
+        run: |
+          gh pr create \
           --base "${BASE_BRANCH}" \
           --head "${RELEASE_BRANCH}" \
           --title "Release v${VERSION}" \
